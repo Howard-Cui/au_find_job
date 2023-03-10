@@ -24,5 +24,8 @@ create table `base` (
                         `id` bigint unsigned not null auto_increment,
                         `base_city` varchar(45) character set utf8mb4 collate utf8mb4_unicode_ci not null comment '城市',
                         `base_state` varchar(3) character set utf8mb4 collate utf8mb4_unicode_ci not null comment '州',
+                        `create_time` int unsigned not null,
+                        `update_time` int unsigned not null,
+                        `is_deleted` tinyint unsigned not null default '0',
                         primary key(`id`)
 )engine=InnoDB default charset=utf8mb4 collate=utf8mb4_unicode_ci comment '工作地点';

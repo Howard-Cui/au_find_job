@@ -2,10 +2,10 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.frontend_model.dao.PositionMapper">
+<mapper namespace="com.example.frontend_service.dao.PositionMapper">
 
     <update id="update"
-            parameterType="com.example.frontend_model.entity.Position"
+            parameterType="com.example.frontend_service.entity.Position"
             keyProperty="id">
         update position
         set id = #{position.id}
@@ -43,7 +43,7 @@
     </update>
 
     <insert id="insert"
-            parameterType="com.example.frontend_model.entity.Position"
+            parameterType="com.example.frontend_service.entity.Position"
             keyProperty="id">
         insert into position (
         <if test="position.id != null">id,</if>

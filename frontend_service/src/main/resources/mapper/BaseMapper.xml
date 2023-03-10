@@ -1,0 +1,48 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.frontend_service.dao.BaseMapper">
+    <update id="update"
+            parameterType="com.example.frontend_service.entity.Base"
+            keyProperty="id">
+        update base
+        set id = #{base.id}
+        <if test="base.baseCity != null and base.baseCity != ''">
+            , base_city = #{base.base_city}
+        </if>
+        <if test="base.baseState != null and base.baseState != ''">
+            , base_state = #{base.baseState}
+        </if>
+        <if test="base.createTime != null">
+            , create_time = #{base.createTime}
+        </if>
+        <if test="base.updateTime != null">
+            , update_time = #{base.updateTime}
+        </if>
+        <if test="base.isDeleted != null">
+            , is_deleted = #{base.isDeleted}
+        </if>
+        where id = #{position.id}
+    </update>
+
+    <insert id="insert"
+            parameterType="com.example.frontend_service.entity.Base"
+            keyProperty="id">
+        insert into position (
+        <if test="base.id != null">id,</if>
+        <if test="base.baseCity != null and base.baseCity != ''">base_city,</if>
+        <if test="base.baseState != null and base.baseState != ''">base_state,</if>
+        <if test="base.createTime != null">create_time,</if>
+        <if test="base.updateTime != null">update_time,</if>
+        is_deleted
+        ) values (
+        <if test="base.id != null">#{base.id},</if>
+        <if test="base.baseCity != null and base.baseCity != ''">#{base.baseCity},</if>
+        <if test="base.baseState != null and base.baseState != ''">#{pbase.baseState},</if>
+        <if test="base.createTime != null">#{base.createTime},</if>
+        <if test="base.updateTime != null">#{base.updateTime},</if>
+        #{base.isDeleted}
+        )
+    </insert>
+</mapper>

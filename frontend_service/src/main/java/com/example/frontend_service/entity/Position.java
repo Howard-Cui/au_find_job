@@ -1,4 +1,4 @@
-package com.example.frontend_model.entity;
+package com.example.frontend_service.entity;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
